@@ -4,41 +4,42 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>UKE Klasa C — nauka</title>
-  <meta name="theme-color" content="#0b1220" />
+  <meta name="theme-color" content="#111111" />
   <link rel="manifest" href="./manifest.json" />
+  
   <style>
     :root {
-      --bg:#020617; --bg2:#0b1220; --card:#0f172a; --card2:#111827; --text:#e5edf9; --muted:#94a3b8;
-      --line:#1f2937; --primary:#3b82f6; --primary2:#2563eb; --chip:#172554; --good:#16a34a; --goodbg:#052e16;
-      --bad:#ef4444; --badbg:#450a0a; --warn:#f59e0b; --warnbg:#3b2500; --shadow:0 12px 32px rgba(0,0,0,.35); --radius:20px;
+      --bg:#f4f4f4; --bg2:#ececec; --card:#ffffff; --card2:#f8f8f8; --text:#111111; --muted:#5f5f5f;
+      --line:#d9d9d9; --primary:#111111; --primary2:#000000; --chip:#111111; --good:#111111; --goodbg:#f2f2f2;
+      --bad:#111111; --badbg:#ebebeb; --warn:#111111; --warnbg:#f6f6f6; --shadow:0 8px 24px rgba(0,0,0,.06); --radius:20px;
     }
     * { box-sizing:border-box; }
     body { margin:0; background:linear-gradient(180deg,var(--bg),var(--bg2)); color:var(--text); font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; }
     .app { max-width:860px; margin:0 auto; padding:14px 14px 96px; }
-    .card { background:linear-gradient(180deg,rgba(17,24,39,.96),rgba(15,23,42,.96)); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow); padding:16px; margin-bottom:12px; }
+    .card { background:linear-gradient(180deg,var(--card),var(--card2)); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow); padding:16px; margin-bottom:12px; }
     .title { font-size:1.18rem; font-weight:800; } .sub { color:var(--muted); font-size:.93rem; margin-top:4px; }
     .row { display:flex; gap:8px; flex-wrap:wrap; align-items:center; } .space { justify-content:space-between; }
-    .badge { background:#0b1220; border:1px solid var(--line); border-radius:999px; padding:6px 10px; font-size:.82rem; color:#cbd5e1; }
-    .progress { width:100%; height:10px; background:#111827; border-radius:999px; overflow:hidden; margin-top:10px; border:1px solid var(--line); }
-    .progress>div { height:100%; background:linear-gradient(90deg,var(--primary),#60a5fa); width:0; transition:width .2s ease; }
+    .badge { background:#f7f7f7; border:1px solid var(--line); border-radius:999px; padding:6px 10px; font-size:.82rem; color:#333; }
+    .progress { width:100%; height:10px; background:#dedede; border-radius:999px; overflow:hidden; margin-top:10px; border:1px solid var(--line); }
+    .progress>div { height:100%; background:linear-gradient(90deg,var(--primary),#4a4a4a); width:0; transition:width .2s ease; }
     .tabs { display:flex; gap:8px; overflow:auto; padding-bottom:4px; margin-bottom:12px; }
     .tab,.btn,.option,.chip { -webkit-tap-highlight-color: transparent; }
-    .tab,.btn { border:1px solid var(--line); background:#0b1220; color:var(--text); border-radius:14px; padding:10px 12px; font-size:.95rem; cursor:pointer; text-decoration:none; }
-    .tab.active,.btn.primary { background:linear-gradient(180deg,var(--primary),var(--primary2)); color:white; border-color:#2563eb; }
-    .btn.ghost { background:#0b1220; } .btn.small,.chip { padding:8px 10px; font-size:.84rem; }
-    .chip { border:1px solid var(--line); border-radius:999px; background:#0b1220; color:var(--text); cursor:pointer; } .chip.active { background:var(--chip); border-color:#1d4ed8; }
-    input,textarea,select { width:100%; border:1px solid var(--line); border-radius:14px; padding:11px 12px; font:inherit; background:#0b1220; color:var(--text); }
+    .tab,.btn { border:1px solid var(--line); background:#fff; color:var(--text); border-radius:14px; padding:10px 12px; font-size:.95rem; cursor:pointer; text-decoration:none; }
+    .tab.active,.btn.primary { background:linear-gradient(180deg,var(--primary),var(--primary2)); color:white; border-color:#000; }
+    .btn.ghost { background:#fff; } .btn.small,.chip { padding:8px 10px; font-size:.84rem; }
+    .chip { border:1px solid var(--line); border-radius:999px; background:#fff; color:var(--text); cursor:pointer; } .chip.active { background:#111; color:#fff; border-color:#111; }
+    input,textarea,select { width:100%; border:1px solid var(--line); border-radius:14px; padding:11px 12px; font:inherit; background:#fff; color:var(--text); }
     textarea{ resize:vertical; min-height:130px; }
     .question{ font-size:1.06rem; line-height:1.55; font-weight:700; margin:8px 0 12px; }
-    .option{ width:100%; text-align:left; border:1px solid var(--line); border-radius:14px; padding:12px; background:#0b1220; margin-bottom:8px; cursor:pointer; color:var(--text); }
-    .option.good{ background:var(--goodbg); border-color:var(--good); } .option.bad{ background:var(--badbg); border-color:var(--bad); }
-    .notice{ border:1px solid var(--warn); background:var(--warnbg); border-radius:14px; padding:12px; font-size:.92rem; margin-top:10px; }
-    .notice.gray{ border-color:var(--line); background:#0b1220; }
+    .option{ width:100%; text-align:left; border:1px solid var(--line); border-radius:14px; padding:12px; background:#fff; margin-bottom:8px; cursor:pointer; color:var(--text); }
+    .option.good{ background:#f1f1f1; border-color:#111; } .option.bad{ background:#ebebeb; border-color:#111; }
+    .notice{ border:1px solid #111; background:#f6f6f6; border-radius:14px; padding:12px; font-size:.92rem; margin-top:10px; }
+    .notice.gray{ border-color:var(--line); background:#fafafa; }
     .muted{ color:var(--muted); } .hidden{ display:none !important; } .divider{ height:1px; background:var(--line); margin:14px 0; }
     .grid2{ display:grid; grid-template-columns:1fr 1fr; gap:8px; }
-    .list-item,.item,.mini{ border:1px solid var(--line); border-radius:14px; padding:12px; margin-bottom:10px; background:#0b1220; }
+    .list-item,.item,.mini{ border:1px solid var(--line); border-radius:14px; padding:12px; margin-bottom:10px; background:#fff; }
     .meta{ color:var(--muted); font-size:.83rem; margin-bottom:6px; } .qq{ font-weight:700; line-height:1.5; margin-bottom:8px; }
-    .sticky-footer{ position:fixed; left:0; right:0; bottom:0; padding:10px 14px calc(10px + env(safe-area-inset-bottom)); background:rgba(2,6,23,.92); backdrop-filter:blur(10px); border-top:1px solid var(--line); }
+    .sticky-footer{ position:fixed; left:0; right:0; bottom:0; padding:10px 14px calc(10px + env(safe-area-inset-bottom)); background:rgba(255,255,255,.95); backdrop-filter:blur(10px); border-top:1px solid var(--line); }
     .sticky-inner{ max-width:860px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:8px; }
     .help-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:8px; }
     .help-grid .mini{ margin:0; }
@@ -50,7 +51,7 @@
 <div class="app">
   <div class="card">
     <div class="title">UKE Klasa C — nauka</div>
-    <div class="sub">Ciemna wersja PWA z quizem, fiszkami, listą błędów, pomocą i linkiem do podstaw krótkofalarstwa.</div>
+    <div class="sub">Wersja PWA w czarno-białej stylistyce z quizem, fiszkami, listą błędów, pomocą i linkiem do podstaw krótkofalarstwa.</div>
     <div class="row" style="margin-top:10px;">
       <div class="badge" id="badgeCount">Pytania: 0</div>
       <div class="badge" id="badgeAccuracy">Skuteczność: 0%</div>
