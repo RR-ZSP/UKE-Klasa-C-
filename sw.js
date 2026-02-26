@@ -1,4 +1,4 @@
-const CACHE='uke-klasa-c-pwa-v3';
+const CACHE='uke-klasa-c-pwa-v2';
 const ASSETS=['./','./index.html','./manifest.json','./icon-192.png','./icon-512.png','./krotkofalarstwo_podstawy.html'];
 self.addEventListener('install', e => {
   e.waitUntil(caches.open(CACHE).then(c => c.addAll(ASSETS)));
