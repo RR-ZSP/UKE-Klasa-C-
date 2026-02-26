@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Krótkofalarstwo — alfabet fonetyczny, kody Q i raportowanie</title>
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card: #111827;
+      --card-2: #1f2937;
+      --text: #e5e7eb;
+      --muted: #94a3b8;
+      --accent: #38bdf8;
+      --accent-2: #22c55e;
+      --border: #334155;
+      --warn: #f59e0b;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: linear-gradient(180deg, #020617 0%, #0f172a 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    .container {
+      width: min(1100px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 32px 0 48px;
+    }
+    .hero {
+      background: linear-gradient(135deg, rgba(56,189,248,0.16), rgba(34,197,94,0.12));
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 28px;
+      margin-bottom: 24px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+    }
+    h1, h2, h3 { margin-top: 0; }
+    h1 { font-size: 2rem; margin-bottom: 8px; }
+    h2 {
+      font-size: 1.4rem;
+      margin-bottom: 10px;
+      color: #dbeafe;
+    }
+    p.lead { color: var(--muted); margin: 0; }
+    section {
+      background: rgba(17,24,39,0.9);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 24px;
+      margin-bottom: 20px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 18px;
+    }
+    .card {
+      background: var(--card-2);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 16px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 14px;
+      overflow: hidden;
+      border-radius: 12px;
+    }
+    th, td {
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--border);
+      text-align: left;
+      vertical-align: top;
+    }
+    th {
+      background: rgba(56,189,248,0.12);
+      color: #e0f2fe;
+    }
+    tr:nth-child(even) td { background: rgba(255,255,255,0.02); }
+    .badge {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(34,197,94,0.14);
+      color: #bbf7d0;
+      font-size: 0.9rem;
+      margin-bottom: 8px;
+    }
+    .note {
+      border-left: 4px solid var(--warn);
+      background: rgba(245,158,11,0.08);
+      padding: 12px 14px;
+      border-radius: 10px;
+      color: #fde68a;
+    }
+    code {
+      background: rgba(255,255,255,0.08);
+      border-radius: 6px;
+      padding: 2px 6px;
+      color: #bfdbfe;
+    }
+    ul { margin: 8px 0 0 20px; }
+    .footer {
+      color: var(--muted);
+      font-size: 0.95rem;
+      text-align: center;
+      margin-top: 12px;
+    }
+    @media (max-width: 680px) {
+      h1 { font-size: 1.6rem; }
+      .container { width: min(100% - 20px, 1100px); }
+      section, .hero { padding: 18px; }
+      th, td { padding: 8px 10px; font-size: 0.95rem; }
+    }
+      .topbar { display:flex; justify-content:flex-end; margin-bottom:14px; }
+    .backbtn { display:inline-block; text-decoration:none; background:rgba(56,189,248,0.16); color:#e0f2fe; border:1px solid var(--border); border-radius:12px; padding:10px 14px; font-weight:700; }
+    .backbtn:hover { background:rgba(56,189,248,0.22); }
+  </style>
+</head>
+<body>
+  <div class="container"><div class="topbar"><a class="backbtn" href="./index.html">Wróć do quizu</a></div>
+    <div class="hero">
+      <div class="badge">Podstawy krótkofalarstwa</div>
+      <h1>Międzynarodowy alfabet fonetyczny, kody Q i zasady raportowania</h1>
+      <p class="lead">
+        Prosta ściąga dla początkującego radioamatora. Strona zbiera najważniejsze elementy potrzebne do nauki i pierwszych łączności.
+      </p>
+    </div>
+
+    <section>
+      <h2>1. Międzynarodowy alfabet fonetyczny</h2>
+      <p>
+        Alfabet fonetyczny służy do wyraźnego literowania znaków wywoławczych, nazw i skrótów podczas łączności radiowej.
+        Każda litera ma przypisane standardowe słowo.
+      </p>
+      <table>
+        <thead>
+          <tr>
+            <th>Litera</th>
+            <th>Słowo</th>
+            <th>Wymowa pomocnicza</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>A</td><td>Alfa</td><td>al-fa</td></tr>
+          <tr><td>B</td><td>Bravo</td><td>bra-wo</td></tr>
+          <tr><td>C</td><td>Charlie</td><td>czar-li</td></tr>
+          <tr><td>D</td><td>Delta</td><td>del-ta</td></tr>
+          <tr><td>E</td><td>Echo</td><td>e-ko</td></tr>
+          <tr><td>F</td><td>Foxtrot</td><td>foks-trot</td></tr>
+          <tr><td>G</td><td>Golf</td><td>golf</td></tr>
+          <tr><td>H</td><td>Hotel</td><td>ho-tel</td></tr>
+          <tr><td>I</td><td>India</td><td>in-di-a</td></tr>
+          <tr><td>J</td><td>Juliett</td><td>dżu-li-et</td></tr>
+          <tr><td>K</td><td>Kilo</td><td>ki-lo</td></tr>
+          <tr><td>L</td><td>Lima</td><td>li-ma</td></tr>
+          <tr><td>M</td><td>Mike</td><td>majk</td></tr>
+          <tr><td>N</td><td>November</td><td>no-wem-ber</td></tr>
+          <tr><td>O</td><td>Oscar</td><td>os-kar</td></tr>
+          <tr><td>P</td><td>Papa</td><td>pa-pa</td></tr>
+          <tr><td>Q</td><td>Quebec</td><td>kłe-bek</td></tr>
+          <tr><td>R</td><td>Romeo</td><td>ro-mi-o</td></tr>
+          <tr><td>S</td><td>Sierra</td><td>si-er-ra</td></tr>
+          <tr><td>T</td><td>Tango</td><td>tan-go</td></tr>
+          <tr><td>U</td><td>Uniform</td><td>ju-ni-form</td></tr>
+          <tr><td>V</td><td>Victor</td><td>wik-tor</td></tr>
+          <tr><td>W</td><td>Whiskey</td><td>łis-ki</td></tr>
+          <tr><td>X</td><td>X-ray</td><td>eks-rej</td></tr>
+          <tr><td>Y</td><td>Yankee</td><td>jen-ki</td></tr>
+          <tr><td>Z</td><td>Zulu</td><td>zu-lu</td></tr>
+        </tbody>
+      </table>
+      <div class="card" style="margin-top:16px;">
+        <strong>Przykład literowania znaku:</strong><br>
+        <code>SQ5JRK</code> = <strong>Sierra Quebec Five Juliett Romeo Kilo</strong>
+      </div>
+    </section>
+
+    <section>
+      <h2>2. Kod Q — najczęściej używane skróty</h2>
+      <p>
+        Kod Q to zestaw trzyliterowych skrótów zaczynających się od litery <strong>Q</strong>.
+        Ułatwia krótkie i jednoznaczne przekazywanie informacji podczas pracy na paśmie.
+      </p>
+      <table>
+        <thead>
+          <tr>
+            <th>Kod Q</th>
+            <th>Znaczenie</th>
+            <th>Przykład użycia</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>QRG</td><td>Moja częstotliwość wynosi…</td><td><code>QRG 145.500 MHz</code></td></tr>
+          <tr><td>QRH</td><td>Moja częstotliwość się waha</td><td><code>Masz lekkie QRH</code></td></tr>
+          <tr><td>QRI</td><td>Jakość tonu nadawania</td><td><code>QRI 5</code></td></tr>
+          <tr><td>QRK</td><td>Czytelność sygnału</td><td><code>QRK 5</code></td></tr>
+          <tr><td>QRL</td><td>Czy częstotliwość jest zajęta?</td><td><code>QRL?</code></td></tr>
+          <tr><td>QRM</td><td>Zakłócenia od innych stacji</td><td><code>Mam silne QRM</code></td></tr>
+          <tr><td>QRN</td><td>Zakłócenia atmosferyczne</td><td><code>Na paśmie jest QRN</code></td></tr>
+          <tr><td>QRO</td><td>Zwiększ moc</td><td><code>QRO?</code></td></tr>
+          <tr><td>QRP</td><td>Zmniejsz moc / praca małą mocą</td><td><code>Pracuję QRP</code></td></tr>
+          <tr><td>QRQ</td><td>Nadawaj szybciej</td><td><code>QRQ</code></td></tr>
+          <tr><td>QRS</td><td>Nadawaj wolniej</td><td><code>QRS pse</code></td></tr>
+          <tr><td>QRT</td><td>Zakończ nadawanie / kończę pracę</td><td><code>Muszę QRT</code></td></tr>
+          <tr><td>QRV</td><td>Jestem gotowy</td><td><code>QRV for sked</code></td></tr>
+          <tr><td>QRX</td><td>Poczekaj chwilę</td><td><code>QRX 5 min</code></td></tr>
+          <tr><td>QRZ</td><td>Kto mnie woła?</td><td><code>QRZ?</code></td></tr>
+          <tr><td>QSB</td><td>Zaniki sygnału</td><td><code>Masz QSB</code></td></tr>
+          <tr><td>QSL</td><td>Potwierdzam odbiór</td><td><code>QSL, dzięki</code></td></tr>
+          <tr><td>QSO</td><td>Łączność radiowa</td><td><code>Dziękuję za QSO</code></td></tr>
+          <tr><td>QSY</td><td>Zmiana częstotliwości</td><td><code>QSY na 145.550</code></td></tr>
+          <tr><td>QTH</td><td>Moja lokalizacja</td><td><code>Mój QTH to Warszawa</code></td></tr>
+          <tr><td>QTR</td><td>Dokładny czas</td><td><code>QTR 1830 UTC</code></td></tr>
+        </tbody>
+      </table>
+      <div class="note" style="margin-top:16px;">
+        W mowie fonicznej wielu krótkofalowców używa kodów Q wprost, np. „mam QRM”, „QSL”, „mój QTH to Warszawa”.
+      </div>
+    </section>
+
+    <section>
+      <h2>3. Zasady raportowania</h2>
+      <p>
+        Raport to krótka ocena odbieranego sygnału korespondenta. Najczęściej używa się systemu <strong>RST</strong>:
+      </p>
+      <div class="grid">
+        <div class="card">
+          <h3>R — Readability</h3>
+          <p><strong>Czytelność</strong> sygnału w skali 1–5.</p>
+          <ul>
+            <li>1 — nieczytelny</li>
+            <li>2 — ledwo czytelny</li>
+            <li>3 — czytelny z trudnością</li>
+            <li>4 — czytelny</li>
+            <li>5 — doskonale czytelny</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>S — Strength</h3>
+          <p><strong>Siła</strong> sygnału w skali 1–9.</p>
+          <ul>
+            <li>1 — bardzo słaby</li>
+            <li>5 — średni</li>
+            <li>9 — bardzo silny</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>T — Tone</h3>
+          <p><strong>Ton</strong> sygnału w skali 1–9.</p>
+          <ul>
+            <li>Stosowany głównie przy CW</li>
+            <li>W łącznościach fonicznych zwykle podaje się tylko <strong>RS</strong></li>
+          </ul>
+        </div>
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Rodzaj łączności</th>
+            <th>Typ raportu</th>
+            <th>Przykład</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Fonia (SSB / FM)</td><td>RS</td><td><code>Raport dla ciebie 5 i 9</code></td></tr>
+          <tr><td>Telegrafia (CW)</td><td>RST</td><td><code>579</code></td></tr>
+          <tr><td>Łączności contestowe</td><td>często 59 lub 599 + numer</td><td><code>59 001</code></td></tr>
+        </tbody>
+      </table>
+
+      <div class="card" style="margin-top:16px;">
+        <h3>Przykładowe raporty</h3>
+        <ul>
+          <li><strong>59</strong> — sygnał bardzo czytelny i bardzo silny.</li>
+          <li><strong>57</strong> — czytelność idealna, siła dobra.</li>
+          <li><strong>44</strong> — sygnał czytelny, ale umiarkowany.</li>
+          <li><strong>579</strong> — typowy raport CW: czytelność 5, siła 7, ton 9.</li>
+        </ul>
+      </div>
+
+      <div class="note" style="margin-top:16px;">
+        W praktyce raport powinien odpowiadać temu, co naprawdę słyszysz. W zawodach często spotyka się raporty „uprzejmościowe”, np. 59 lub 599, ale do nauki warto trzymać się rzeczywistej oceny sygnału.
+      </div>
+    </section>
+
+    <section>
+      <h2>4. Krótki przykład łączności</h2>
+      <div class="card">
+        <p><strong>Wywołanie:</strong><br>
+        <code>Tu SQ5JRK, Sierra Quebec Five Juliett Romeo Kilo, nasłuchuję na 145.500, QRZ?</code></p>
+
+        <p><strong>Odpowiedź:</strong><br>
+        <code>Tu SP5ABC. Witaj Jurek, raport dla ciebie 5 i 7, moje QTH Warszawa.</code></p>
+
+        <p><strong>Potwierdzenie:</strong><br>
+        <code>QSL, dziękuję. Dla ciebie również 5 i 9. 73!</code></p>
+      </div>
+    </section>
+
+    <p class="footer">Gotowa strona HTML do nauki podstaw krótkofalarstwa.</p>
+  </div>
+</body>
+</html>
