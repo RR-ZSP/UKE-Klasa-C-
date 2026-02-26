@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>UKE Klasa C — nauka</title>
+  <meta name="theme-color" content="#2563eb" />
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --card: #ffffff;
+      --text: #0f172a;
+      --muted: #64748b;
+      --line: #e2e8f0;
+      --primary: #2563eb;
+      --primary-2: #1d4ed8;
+      --good-bg: #ecfdf5;
+      --good-bd: #22c55e;
+      --bad-bg: #fef2f2;
+      --bad-bd: #ef4444;
+      --warn-bg: #fffbeb;
+      --warn-bd: #f59e0b;
+      --chip: #eef2ff;
+      --shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+      --radius: 18px;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    }
+    .app {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 14px 14px 96px;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 16px;
+      margin-bottom: 12px;
+    }
+    .title { font-size: 1.15rem; font-weight: 700; }
+    .sub { color: var(--muted); font-size: .92rem; margin-top: 4px; }
+    .row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+    .space { justify-content: space-between; }
+    .badge {
+      background: #f1f5f9;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 6px 10px;
+      font-size: .82rem;
+    }
+    .progress {
+      width: 100%;
+      height: 10px;
+      background: #e2e8f0;
+      border-radius: 999px;
+      overflow: hidden;
+      margin-top: 10px;
+    }
+    .progress > div {
+      height: 100%;
+      background: linear-gradient(90deg, var(--primary), var(--primary-2));
+      width: 0%;
+      transition: width .2s ease;
+    }
+    .tabs {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 6px;
+      margin-bottom: 12px;
+    }
+    .tab, .btn {
+      border: 1px solid var(--line);
+      background: white;
+      color: var(--text);
+      border-radius: 14px;
+      padding: 10px 12px;
+      font-size: .95rem;
+      cursor: pointer;
+    }
+    .tab.active, .btn.primary {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+    .btn.ghost { background: white; }
+    .btn.small, .chip { padding: 8px 10px; font-size: .84rem; }
+    .chip {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: white;
+      cursor: pointer;
+    }
+    .chip.active { background: var(--chip); border-color: #c7d2fe; }
+    input, textarea, select {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 11px 12px;
+      font: inherit;
+      background: white;
+      color: var(--text);
+    }
+    textarea { resize: vertical; min-height: 130px; }
+    .question {
+      font-size: 1.06rem;
+      line-height: 1.5;
+      font-weight: 600;
+      margin: 8px 0 12px;
+    }
+    .option {
+      width: 100%;
+      text-align: left;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 12px;
+      background: white;
+      margin-bottom: 8px;
+      cursor: pointer;
+    }
+    .option.good { background: var(--good-bg); border-color: var(--good-bd); }
+    .option.bad { background: var(--bad-bg); border-color: var(--bad-bd); }
+    .hint {
+      border: 1px solid var(--warn-bd);
+      background: var(--warn-bg);
+      border-radius: 14px;
+      padding: 12px;
+      font-size: .92rem;
+      margin-top: 10px;
+    }
+    .muted { color: var(--muted); }
+    .list-item {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 12px;
+      margin-bottom: 10px;
+      background: white;
+    }
+    .divider { height: 1px; background: var(--line); margin: 14px 0; }
+    .hidden { display: none !important; }
+    .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+    .sticky-footer {
+      position: fixed;
+      left: 0; right: 0; bottom: 0;
+      padding: 10px 14px calc(10px + env(safe-area-inset-bottom));
+      background: rgba(248, 250, 252, .95);
+      backdrop-filter: blur(10px);
+      border-top: 1px solid var(--line);
+    }
+    .sticky-inner { max-width: 760px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+    .code {
+      background: #0f172a;
+      color: #e2e8f0;
+      border-radius: 14px;
+      padding: 10px 12px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: .85rem;
+      overflow: auto;
+    }
+    @media (max-width: 520px) {
+      .tabs { grid-template-columns: repeat(2, 1fr); }
+      .grid2 { grid-template-columns: 1fr; }
+      .sticky-inner { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <div class="card">
+      <div class="title">UKE Klasa C — nauka</div>
+      <div class="sub">Jednoplikowa aplikacja HTML pod GitHub Pages. Działa bez kompilacji i zapisuje dane lokalnie w przeglądarce.</div>
+      <div class="row" style="margin-top:10px;">
+        <div class="badge" id="badgeCount">Pytania: 0</div>
+        <div class="badge" id="badgeAccuracy">Skuteczność: 0%</div>
+      </div>
+      <div class="progress"><div id="progressBar"></div></div>
+    </div>
+
+    <div class="tabs">
+      <button class="tab active" data-tab="quiz">Quiz</button>
+      <button class="tab" data-tab="fiszki">Fiszki</button>
+      <button class="tab" data-tab="baza">Baza</button>
+      <button class="tab" data-tab="import">Import</button>
+    </div>
+
+    <section id="tab-quiz" class="tab-panel">
+      <div class="card">
+        <div class="grid2">
+          <input id="searchInput" placeholder="Szukaj pytania..." />
+          <select id="categorySelect"></select>
+        </div>
+        <div class="row" id="categoryChips" style="margin-top:10px;"></div>
+      </div>
+      <div class="card" id="quizCard"></div>
+    </section>
+
+    <section id="tab-fiszki" class="tab-panel hidden">
+      <div class="card" id="flashCard"></div>
+    </section>
+
+    <section id="tab-baza" class="tab-panel hidden">
+      <div class="card">
+        <div class="row space">
+          <div>
+            <div class="title" style="font-size:1rem;">Baza pytań</div>
+            <div class="sub">Możesz ręcznie oznaczać poprawną odpowiedź dla każdego pytania.</div>
+          </div>
+          <div class="row">
+            <button class="btn ghost small" id="exportJsonBtn">Eksport JSON</button>
+            <button class="btn ghost small" id="resetStatsBtn">Reset statystyk</button>
+          </div>
+        </div>
+        <div class="divider"></div>
+        <div id="baseList"></div>
+      </div>
+    </section>
+
+    <section id="tab-import" class="tab-panel hidden">
+      <div class="card">
+        <div class="title" style="font-size:1rem;">Import tekstu z PDF</div>
+        <div class="sub">Wklej tekst skopiowany z PDF w formacie numer pytania + odpowiedzi A/B/C. Poprawną odpowiedź możesz oznaczyć przez <b>[OK]</b> przed opcją.</div>
+        <textarea id="rawImport" placeholder="1. Pytanie...&#10;A. ...&#10;B. ...&#10;C. ..."></textarea>
+        <div class="row" style="margin-top:10px;">
+          <button class="btn primary" id="importRawBtn">Importuj tekst</button>
+        </div>
+        <div class="divider"></div>
+        <div class="title" style="font-size:1rem;">Import gotowego JSON</div>
+        <div class="sub">Format: tablica obiektów z polami: id, category, question, options, answerIndex.</div>
+        <textarea id="jsonImport" placeholder='[{"id":"1","category":"...","question":"...","options":["A","B","C"],"answerIndex":0}]'></textarea>
+        <div class="row" style="margin-top:10px;">
+          <button class="btn ghost" id="importJsonBtn">Wczytaj JSON</button>
+        </div>
+        <div class="divider"></div>
+        <div class="title" style="font-size:1rem;">Publikacja na GitHub Pages</div>
+        <div class="sub">Wrzuć ten plik jako <b>index.html</b> do repozytorium i w ustawieniach Pages wybierz publikację z gałęzi. GitHub Pages hostuje zwykłe pliki HTML, CSS i JavaScript bezpośrednio z repozytorium. citeturn0search0turn0search1turn0search2</div>
+      </div>
+    </section>
+  </div>
+
+  <div class="sticky-footer">
+    <div class="sticky-inner">
+      <button class="btn ghost" id="shuffleBtn">Tasuj</button>
+      <button class="btn primary" id="nextBtn">Dalej</button>
+    </div>
+  </div>
+
+  <script>
+    const SAMPLE_QUESTIONS = [
+      { id: "1", category: "Radioelektronika", question: "Czy opór elektryczny przewodu zależy od materiału z którego jest wykonany?", options: ["zależy", "nie zależy", "zależy od izolacji przewodu"], answerIndex: 0, explanation: "Opór zależy m.in. od materiału, długości i przekroju przewodu." },
+      { id: "2", category: "Radioelektronika", question: "Izolatorami nazywamy materiały które:", options: ["nie przewodzą prądu elektrycznego", "przewodzą słabo", "przewodzą prąd przy wysokim napięciu"], answerIndex: 0 },
+      { id: "3", category: "Radioelektronika", question: "Który z materiałów ma własności półprzewodnikowe?", options: ["złoto", "german", "platyna"], answerIndex: 1 },
+      { id: "4", category: "Technika", question: "Modulacja telegraficzna CW polega na:", options: ["przerywaniu fali nośnej", "zmianie jej częstotliwości", "zmianie jej amplitudy"], answerIndex: 0 },
+      { id: "5", category: "Przepisy i praktyka", question: "Znak wywoławczy stacji amatorskiej to:", options: ["dowolny skrót operatora", "numer urządzenia radiowego", "unikalny identyfikator stacji"], answerIndex: 2 }
+    ];
+
+    const els = {
+      badgeCount: document.getElementById('badgeCount'),
+      badgeAccuracy: document.getElementById('badgeAccuracy'),
+      progressBar: document.getElementById('progressBar'),
+      searchInput: document.getElementById('searchInput'),
+      categorySelect: document.getElementById('categorySelect'),
+      categoryChips: document.getElementById('categoryChips'),
+      quizCard: document.getElementById('quizCard'),
+      flashCard: document.getElementById('flashCard'),
+      baseList: document.getElementById('baseList'),
+      rawImport: document.getElementById('rawImport'),
+      jsonImport: document.getElementById('jsonImport'),
+      nextBtn: document.getElementById('nextBtn'),
+      shuffleBtn: document.getElementById('shuffleBtn')
+    };
+
+    let questions = load('uke_questions', SAMPLE_QUESTIONS);
+    let stats = load('uke_stats', { correct: 0, wrong: 0, seen: {} });
+    let ui = { tab: 'quiz', search: '', category: 'Wszystkie', shuffled: true, currentIndex: 0, selected: null, showAnswer: false };
+    let session = [];
+
+    function load(key, fallback) {
+      try {
+        const raw = localStorage.getItem(key);
+        return raw ? JSON.parse(raw) : fallback;
+      } catch {
+        return fallback;
+      }
+    }
+    function save(key, value) { localStorage.setItem(key, JSON.stringify(value)); }
+    function shuffleArray(arr) {
+      const copy = [...arr];
+      for (let i = copy.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [copy[i], copy[j]] = [copy[j], copy[i]];
+      }
+      return copy;
+    }
+    function parseQuestionsFromRawText(raw) {
+      const lines = raw.split(/\r?\n/).map(x => x.trim()).filter(Boolean);
+      const out = [];
+      let current = null;
+      let options = [];
+      const flush = () => {
+        if (current && options.length >= 2) {
+          current.options = options.slice(0, 3);
+          if (current.answerIndex === undefined) current.answerIndex = null;
+          out.push(current);
+        }
+        current = null; options = [];
+      };
+      for (const line of lines) {
+        const q = line.match(/^(\d+)\.\s+(.+)/);
+        const opt = line.match(/^([ABC])\.\s*(.+)$/i);
+        if (q) {
+          if (current) flush();
+          current = { id: q[1], category: 'Importowane', question: q[2], options: [], answerIndex: null };
+          continue;
+        }
+        if (opt && current) {
+          const label = opt[1].toUpperCase();
+          let text = opt[2];
+          if (/^\[OK\]/i.test(text)) {
+            text = text.replace(/^\[OK\]\s*/i, '');
+            current.answerIndex = { A: 0, B: 1, C: 2 }[label];
+          }
+          options.push(text);
+          continue;
+        }
+        if (current && options.length === 0) current.question += ' ' + line;
+        else if (current && options.length > 0) options[options.length - 1] += ' ' + line;
+      }
+      if (current) flush();
+      return out;
+    }
+    function filteredQuestions() {
+      return questions.filter(q => {
+        const catOk = ui.category === 'Wszystkie' || q.category === ui.category;
+        const hay = `${q.question} ${(q.options || []).join(' ')}`.toLowerCase();
+        const searchOk = !ui.search || hay.includes(ui.search.toLowerCase());
+        return catOk && searchOk;
+      });
+    }
+    function restartSession() {
+      const base = filteredQuestions();
+      session = ui.shuffled ? shuffleArray(base) : [...base];
+      ui.currentIndex = 0;
+      ui.selected = null;
+      ui.showAnswer = false;
+    }
+    function currentQuestion() { return session[ui.currentIndex] || null; }
+    function accuracy() {
+      const total = stats.correct + stats.wrong;
+      return total ? Math.round((stats.correct / total) * 100) : 0;
+    }
+    function renderTabs() {
+      document.querySelectorAll('.tab').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.tab === ui.tab);
+      });
+      document.querySelectorAll('.tab-panel').forEach(panel => {
+        panel.classList.toggle('hidden', panel.id !== `tab-${ui.tab}`);
+      });
+      const sticky = document.querySelector('.sticky-footer');
+      sticky.classList.toggle('hidden', !['quiz', 'fiszki'].includes(ui.tab));
+    }
+    function renderFilters() {
+      const categories = ['Wszystkie', ...new Set(questions.map(q => q.category || 'Inne'))];
+      els.categorySelect.innerHTML = categories.map(c => `<option ${c===ui.category?'selected':''}>${escapeHtml(c)}</option>`).join('');
+      els.categoryChips.innerHTML = categories.map(c => `<button class="chip ${c===ui.category?'active':''}" data-cat="${escapeAttr(c)}">${escapeHtml(c)}</button>`).join('');
+      els.searchInput.value = ui.search;
+    }
+    function renderHeader() {
+      els.badgeCount.textContent = `Pytania: ${questions.length}`;
+      els.badgeAccuracy.textContent = `Skuteczność: ${accuracy()}%`;
+      const total = session.length;
+      const progress = total ? ((Math.min(ui.currentIndex + 1, total)) / total) * 100 : 0;
+      els.progressBar.style.width = progress + '%';
+    }
+    function renderQuiz() {
+      const q = currentQuestion();
+      if (!q) {
+        els.quizCard.innerHTML = `<div class="muted">Brak pytań dla wybranego filtra.</div>`;
+        return;
+      }
+      const index = Math.min(ui.currentIndex + 1, session.length);
+      const options = (q.options || []).map((opt, idx) => {
+        let cls = 'option';
+        if (ui.showAnswer && q.answerIndex === idx) cls += ' good';
+        if (ui.showAnswer && ui.selected === idx && q.answerIndex !== idx) cls += ' bad';
+        return `<button class="${cls}" data-answer="${idx}"><b>${'ABC'[idx]}.</b> ${escapeHtml(opt)}</button>`;
+      }).join('');
+      const note = (ui.showAnswer && (q.answerIndex === null || q.answerIndex === undefined))
+        ? `<div class="hint">Brak klucza odpowiedzi dla tego pytania. Uzupełnij go w zakładce <b>Baza</b>.</div>` : '';
+      const explanation = ui.showAnswer && q.explanation ? `<div class="hint" style="border-color:#cbd5e1;background:#f8fafc;">${escapeHtml(q.explanation)}</div>` : '';
+      els.quizCard.innerHTML = `
+        <div class="muted">Pytanie ${index} / ${session.length}</div>
+        <div class="question">${escapeHtml(q.question)}</div>
+        ${options}
+        ${note}
+        ${explanation}
+      `;
+    }
+    function renderFlashcards() {
+      const q = currentQuestion();
+      if (!q) {
+        els.flashCard.innerHTML = `<div class="muted">Brak pytań do wyświetlenia.</div>`;
+        return;
+      }
+      const answers = ui.showAnswer ? `
+        <div style="margin-top:12px;">
+          ${q.options.map((opt, i) => `<div class="list-item" style="margin-bottom:8px;${q.answerIndex===i?'background:#ecfdf5;border-color:#86efac;':''}"><b>${'ABC'[i]}.</b> ${escapeHtml(opt)}</div>`).join('')}
+        </div>` : '';
+      els.flashCard.innerHTML = `
+        <div class="muted">Fiszka ${Math.min(ui.currentIndex + 1, session.length)} / ${session.length}</div>
+        <div class="question">${escapeHtml(q.question)}</div>
+        ${answers}
+        <div class="grid2">
+          <button class="btn ghost" id="toggleAnswerBtn">${ui.showAnswer ? 'Ukryj odpowiedź' : 'Pokaż odpowiedź'}</button>
+          <button class="btn primary" id="nextFlashBtn">Następna</button>
+        </div>
+      `;
+      document.getElementById('toggleAnswerBtn').onclick = () => { ui.showAnswer = !ui.showAnswer; render(); };
+      document.getElementById('nextFlashBtn').onclick = nextQuestion;
+    }
+    function renderBase() {
+      els.baseList.innerHTML = questions.map((q, idx) => `
+        <div class="list-item">
+          <div class="muted">#${escapeHtml(q.id)} • ${escapeHtml(q.category || 'Inne')}</div>
+          <div style="font-weight:600;margin:6px 0 10px;">${escapeHtml(q.question)}</div>
+          ${(q.options || []).map((o, i) => `<button class="option ${q.answerIndex===i?'good':''}" data-base-q="${idx}" data-base-a="${i}" style="margin-bottom:6px;"><b>${'ABC'[i]}.</b> ${escapeHtml(o)}</button>`).join('')}
+        </div>
+      `).join('');
+    }
+    function nextQuestion() {
+      if (ui.currentIndex < session.length - 1) {
+        ui.currentIndex += 1;
+      }
+      ui.selected = null;
+      ui.showAnswer = false;
+      render();
+    }
+    function answerQuestion(idx) {
+      const q = currentQuestion();
+      if (!q || ui.showAnswer) return;
+      ui.selected = idx;
+      ui.showAnswer = true;
+      stats.seen[q.id] = (stats.seen[q.id] || 0) + 1;
+      if (q.answerIndex !== null && q.answerIndex !== undefined) {
+        if (idx === q.answerIndex) stats.correct += 1; else stats.wrong += 1;
+      }
+      save('uke_stats', stats);
+      render();
+    }
+    function exportJson() {
+      const blob = new Blob([JSON.stringify(questions, null, 2)], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'uke-klasa-c-pytania.json';
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+    function escapeHtml(text='') {
+      return String(text)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+    }
+    function escapeAttr(text='') { return escapeHtml(text); }
+    function bindEvents() {
+      document.querySelectorAll('.tab').forEach(btn => btn.onclick = () => { ui.tab = btn.dataset.tab; render(); });
+      els.searchInput.oninput = (e) => { ui.search = e.target.value; restartSession(); render(); };
+      els.categorySelect.onchange = (e) => { ui.category = e.target.value; restartSession(); render(); };
+      els.categoryChips.onclick = (e) => {
+        const btn = e.target.closest('[data-cat]');
+        if (!btn) return;
+        ui.category = btn.dataset.cat;
+        restartSession(); render();
+      };
+      els.quizCard.onclick = (e) => {
+        const btn = e.target.closest('[data-answer]');
+        if (btn) answerQuestion(Number(btn.dataset.answer));
+      };
+      els.baseList.onclick = (e) => {
+        const btn = e.target.closest('[data-base-q]');
+        if (!btn) return;
+        const qIdx = Number(btn.dataset.baseQ);
+        const aIdx = Number(btn.dataset.baseA);
+        questions[qIdx].answerIndex = aIdx;
+        save('uke_questions', questions);
+        restartSession(); render();
+      };
+      document.getElementById('importRawBtn').onclick = () => {
+        const parsed = parseQuestionsFromRawText(els.rawImport.value);
+        if (!parsed.length) return alert('Nie udało się rozpoznać pytań.');
+        questions = parsed;
+        save('uke_questions', questions);
+        els.rawImport.value = '';
+        restartSession();
+        render();
+        alert(`Zaimportowano ${parsed.length} pytań.`);
+      };
+      document.getElementById('importJsonBtn').onclick = () => {
+        try {
+          const parsed = JSON.parse(els.jsonImport.value);
+          if (!Array.isArray(parsed)) throw new Error('JSON musi być tablicą.');
+          questions = parsed;
+          save('uke_questions', questions);
+          els.jsonImport.value = '';
+          restartSession();
+          render();
+          alert('Zaimportowano JSON.');
+        } catch (err) {
+          alert('Błąd importu JSON: ' + err.message);
+        }
+      };
+      document.getElementById('exportJsonBtn').onclick = exportJson;
+      document.getElementById('resetStatsBtn').onclick = () => {
+        if (!confirm('Na pewno wyzerować statystyki?')) return;
+        stats = { correct: 0, wrong: 0, seen: {} };
+        save('uke_stats', stats);
+        render();
+      };
+      els.nextBtn.onclick = nextQuestion;
+      els.shuffleBtn.onclick = () => { ui.shuffled = !ui.shuffled; restartSession(); render(); };
+    }
+    function render() {
+      renderTabs();
+      renderFilters();
+      renderHeader();
+      renderQuiz();
+      renderFlashcards();
+      renderBase();
+      els.shuffleBtn.textContent = ui.shuffled ? 'Tasuj: ON' : 'Tasuj: OFF';
+    }
+
+    bindEvents();
+    restartSession();
+    render();
+  </script>
+</body>
+</html>
