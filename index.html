@@ -54,7 +54,7 @@
 <div class="app">
   <div class="card">
     <div class="title">UKE Klasa C — nauka</div>
-    <div class="sub">Wersja JK do podstaw krótkofalarstwa.</div>
+    <div class="sub">Wersja PWA w czarno-białej stylistyce z quizem, fiszkami, listą błędów, pomocą i linkiem do podstaw krótkofalarstwa.</div>
     <div class="row" style="margin-top:10px;">
       <div class="badge" id="badgeCount">Pytania: 0</div>
       <div class="badge" id="badgeAccuracy">Skuteczność: 0%</div>
@@ -97,7 +97,7 @@ const SAMPLE_QUESTIONS = [
       "nie zależy",
       "zależy od izolacji przewodu"
     ],
-    "answerIndex": null
+    "answerIndex": 0
   },
   {
     "id": "TECH-2",
@@ -109,7 +109,7 @@ const SAMPLE_QUESTIONS = [
       "przewodzą słabo",
       "przewodzą prąd przy wysokim napięciu"
     ],
-    "answerIndex": null
+    "answerIndex": 0
   },
   {
     "id": "TECH-3",
@@ -121,7 +121,7 @@ const SAMPLE_QUESTIONS = [
       "wykonany z żelaza",
       "wykonany z miedzi"
     ],
-    "answerIndex": null
+    "answerIndex": 1
   },
   {
     "id": "TECH-4",
@@ -133,7 +133,7 @@ const SAMPLE_QUESTIONS = [
       "german",
       "platyna"
     ],
-    "answerIndex": null
+    "answerIndex": 1
   },
   {
     "id": "TECH-5",
@@ -145,7 +145,7 @@ const SAMPLE_QUESTIONS = [
       "oporność 12 om",
       "oporność 1,2 kom"
     ],
-    "answerIndex": null
+    "answerIndex": 0
   },
   {
     "id": "TECH-6",
@@ -157,7 +157,7 @@ const SAMPLE_QUESTIONS = [
       "napięcie wynosi 12 V",
       "napięcie wynosi 48 V"
     ],
-    "answerIndex": null
+    "answerIndex": 1
   },
   {
     "id": "TECH-7",
@@ -169,7 +169,7 @@ const SAMPLE_QUESTIONS = [
       "zmienny",
       "pulsujący"
     ],
-    "answerIndex": null
+    "answerIndex": 0
   },
   {
     "id": "TECH-8",
@@ -181,7 +181,7 @@ const SAMPLE_QUESTIONS = [
       "4 godziny",
       "80 godzin"
     ],
-    "answerIndex": null
+    "answerIndex": 0
   },
   {
     "id": "TECH-9",
@@ -193,7 +193,7 @@ const SAMPLE_QUESTIONS = [
       "10 szt.",
       "20 szt."
     ],
-    "answerIndex": null
+    "answerIndex": 2
   },
   {
     "id": "TECH-10",
@@ -205,7 +205,7 @@ const SAMPLE_QUESTIONS = [
       "są różnoimienne",
       "są daleko"
     ],
-    "answerIndex": null
+    "answerIndex": 1
   },
   {
     "id": "TECH-11",
@@ -217,7 +217,7 @@ const SAMPLE_QUESTIONS = [
       "tak jak powietrze",
       "gorzej niż powietrze"
     ],
-    "answerIndex": null
+    "answerIndex": 0
   },
   {
     "id": "TECH-12",
@@ -229,7 +229,7 @@ const SAMPLE_QUESTIONS = [
       "jest do niego równoległe",
       "jest ukośne do przewodu"
     ],
-    "answerIndex": null
+    "answerIndex": 0
   },
   {
     "id": "TECH-13",
@@ -241,7 +241,7 @@ const SAMPLE_QUESTIONS = [
       "pionową",
       "kołową"
     ],
-    "answerIndex": null
+    "answerIndex": 1
   },
   {
     "id": "TECH-14",
@@ -253,7 +253,7 @@ const SAMPLE_QUESTIONS = [
       "nie zależy",
       "jest zawsze jednakowa"
     ],
-    "answerIndex": null
+    "answerIndex": 0
   },
   {
     "id": "TECH-15",
@@ -265,7 +265,7 @@ const SAMPLE_QUESTIONS = [
       "200 kHz",
       "233 kHz"
     ],
-    "answerIndex": null
+    "answerIndex": 1
   },
   {
     "id": "TECH-16",
@@ -277,7 +277,7 @@ const SAMPLE_QUESTIONS = [
       "od 100Hz do 5 kHz",
       "od 20 Hz do 15 kHz"
     ],
-    "answerIndex": null
+    "answerIndex": 0
   },
   {
     "id": "TECH-17",
@@ -289,7 +289,7 @@ const SAMPLE_QUESTIONS = [
       "12 razy",
       "18 razy"
     ],
-    "answerIndex": null
+    "answerIndex": 1
   },
   {
     "id": "TECH-18",
@@ -301,7 +301,7 @@ const SAMPLE_QUESTIONS = [
       "zmianie jej częstotliwości",
       "zmianie jej amplitudy"
     ],
-    "answerIndex": null
+    "answerIndex": 0
   },
   {
     "id": "TECH-19",
@@ -313,7 +313,7 @@ const SAMPLE_QUESTIONS = [
       "bardzo wąski",
       "średni"
     ],
-    "answerIndex": null
+    "answerIndex": 1
   },
   {
     "id": "TECH-20",
@@ -325,7 +325,7 @@ const SAMPLE_QUESTIONS = [
       "50 kHz",
       "200 kHz"
     ],
-    "answerIndex": null
+    "answerIndex": 0
   },
   {
     "id": "TECH-21",
@@ -337,7 +337,7 @@ const SAMPLE_QUESTIONS = [
       "3,5 kHz",
       "1,5 kHz"
     ],
-    "answerIndex": null
+    "answerIndex": 1
   },
   {
     "id": "TECH-22",
@@ -361,7 +361,7 @@ const SAMPLE_QUESTIONS = [
       "100 W",
       "50 W"
     ],
-    "answerIndex": null
+    "answerIndex": 1
   },
   {
     "id": "TECH-24",
@@ -373,7 +373,7 @@ const SAMPLE_QUESTIONS = [
       "warstwa drutu oporowego nawiniętego na wałku ceramicznym",
       "warstwa oporowa węglowa na wałku ceramicznym"
     ],
-    "answerIndex": null
+    "answerIndex": 0
   },
   {
     "id": "TECH-25",
@@ -385,7 +385,7 @@ const SAMPLE_QUESTIONS = [
       "nie zmieni się",
       "zmaleje do 10 μH"
     ],
-    "answerIndex": null
+    "answerIndex": 0
   },
   {
     "id": "TECH-26",
@@ -397,7 +397,7 @@ const SAMPLE_QUESTIONS = [
       "cewka L1",
       "obie mają taką samą dobroć, bo mają tą samą średnicę"
     ],
-    "answerIndex": null
+    "answerIndex": 1
   },
   {
     "id": "TECH-27",
@@ -409,7 +409,7 @@ const SAMPLE_QUESTIONS = [
       "12 V",
       "20 V"
     ],
-    "answerIndex": null
+    "answerIndex": 1
   },
   {
     "id": "TECH-28",
@@ -421,7 +421,7 @@ const SAMPLE_QUESTIONS = [
       "do prostowania prądu w zasilaczach",
       "do stabilizacji napięć"
     ],
-    "answerIndex": null
+    "answerIndex": 1
   },
   {
     "id": "TECH-29",
@@ -433,7 +433,7 @@ const SAMPLE_QUESTIONS = [
       "świecące",
       "na bardzo wysokie częstotliwości"
     ],
-    "answerIndex": null
+    "answerIndex": 0
   },
   {
     "id": "TECH-30",
@@ -445,7 +445,7 @@ const SAMPLE_QUESTIONS = [
       "dioda pojemnościowa",
       "dioda stabilizacyjna"
     ],
-    "answerIndex": null
+    "answerIndex": 1
   },
   {
     "id": "TECH-31",
@@ -457,7 +457,7 @@ const SAMPLE_QUESTIONS = [
       "z czystego krzemu i germanu z domieszkami boru i arsenu",
       "z krzemu i tlenków krzemu"
     ],
-    "answerIndex": null
+    "answerIndex": 1
   },
   {
     "id": "TECH-32",
@@ -469,7 +469,7 @@ const SAMPLE_QUESTIONS = [
       "do układów scalonych analogowych",
       "do scalonych pamięci"
     ],
-    "answerIndex": null
+    "answerIndex": 1
   },
   {
     "id": "TECH-33",
@@ -493,7 +493,7 @@ const SAMPLE_QUESTIONS = [
       "cztery elektrody",
       "trzy elektrody"
     ],
-    "answerIndex": null
+    "answerIndex": 0
   },
   {
     "id": "TECH-35",
@@ -505,7 +505,7 @@ const SAMPLE_QUESTIONS = [
       "20 om",
       "40 om"
     ],
-    "answerIndex": null
+    "answerIndex": 1
   },
   {
     "id": "TECH-36",
@@ -517,7 +517,7 @@ const SAMPLE_QUESTIONS = [
       "2 szt",
       "4 szt"
     ],
-    "answerIndex": null
+    "answerIndex": 2
   },
   {
     "id": "TECH-37",
@@ -529,7 +529,7 @@ const SAMPLE_QUESTIONS = [
       "prostownik jednopołówkowy",
       "prostownik mostkowy dwupołówkowy"
     ],
-    "answerIndex": null
+    "answerIndex": 1
   },
   {
     "id": "TECH-38",
@@ -541,7 +541,7 @@ const SAMPLE_QUESTIONS = [
       "prostownik jednopołówkowy",
       "prostownik mostkowy dwupołówkowy"
     ],
-    "answerIndex": null
+    "answerIndex": 0
   },
   {
     "id": "TECH-39",
@@ -553,7 +553,7 @@ const SAMPLE_QUESTIONS = [
       "wzmacniaczem pośredniej częstotliwości",
       "wzmacniaczem selektywnym"
     ],
-    "answerIndex": null
+    "answerIndex": 0
   },
   {
     "id": "TECH-40",
@@ -565,7 +565,7 @@ const SAMPLE_QUESTIONS = [
       "jak ma za duże napięcie wejściowe",
       "jak pracuje w klasie C"
     ],
-    "answerIndex": null
+    "answerIndex": 1
   },
   {
     "id": "TECH-41",
@@ -781,7 +781,7 @@ const SAMPLE_QUESTIONS = [
       "ósemkowa 2. 4. 3. 7. 1. 6. 5. 8 MHz 24 MHz 72 MHz 144 MHz 144 MHz 144 MHz 2. 4. 3. 7. 1. 6. 5. 8 MHz 24 MHz 72 MHz 144 MHz 144 MHz 144 MHz 1. 3. 2. 6. 7. 4. 5. 3,5 MHz 3,5 MHz 3,5 MHz 3,5 - 14 MHz 9 MHz 5 - 5,5 MHz",
       "kierunkowa w linii zawieszenia"
     ],
-    "answerIndex": null
+    "answerIndex": 1
   },
   {
     "id": "TECH-59",
@@ -793,7 +793,7 @@ const SAMPLE_QUESTIONS = [
       "kierunkowa",
       "w kształcie koniczyny"
     ],
-    "answerIndex": null
+    "answerIndex": 0
   },
   {
     "id": "TECH-60",
@@ -805,7 +805,7 @@ const SAMPLE_QUESTIONS = [
       "radiator",
       "I direktor"
     ],
-    "answerIndex": null
+    "answerIndex": 0
   },
   {
     "id": "TECH-61",
@@ -817,7 +817,7 @@ const SAMPLE_QUESTIONS = [
       "II direktor",
       "reflektor"
     ],
-    "answerIndex": null
+    "answerIndex": 0
   },
   {
     "id": "TECH-62",
@@ -829,7 +829,7 @@ const SAMPLE_QUESTIONS = [
       "I direktor",
       "II direktor"
     ],
-    "answerIndex": null
+    "answerIndex": 1
   },
   {
     "id": "TECH-63",
@@ -841,7 +841,7 @@ const SAMPLE_QUESTIONS = [
       "II direktor",
       "radiator"
     ],
-    "answerIndex": null
+    "answerIndex": 1
   },
   {
     "id": "TECH-64",
@@ -853,7 +853,7 @@ const SAMPLE_QUESTIONS = [
       "bo najłatwiej takie wykonać",
       "bo wymagają do wykonania najmniejszej ilości materiału"
     ],
-    "answerIndex": null
+    "answerIndex": 0
   },
   {
     "id": "TECH-65",
@@ -865,7 +865,7 @@ const SAMPLE_QUESTIONS = [
       "kiedy obok kabla koncentrycznego przechodzi inny kabel",
       "kiedy oporność obciążenia nie jest zgodna z opornością falową kabla"
     ],
-    "answerIndex": null
+    "answerIndex": 2
   },
   {
     "id": "TECH-66",
@@ -877,7 +877,7 @@ const SAMPLE_QUESTIONS = [
       "reflektometr",
       "refraktometr"
     ],
-    "answerIndex": null
+    "answerIndex": 1
   },
   {
     "id": "TECH-1",
@@ -889,7 +889,7 @@ const SAMPLE_QUESTIONS = [
       "niewielka zmiana oporności falowej anteny",
       "zamoczenie izolacji w kablu"
     ],
-    "answerIndex": null
+    "answerIndex": 0
   },
   {
     "id": "TECH-68",
@@ -901,7 +901,7 @@ const SAMPLE_QUESTIONS = [
       "symetryzatora 1 do 1",
       "baluna o przekładni 1 do 2"
     ],
-    "answerIndex": null
+    "answerIndex": 1
   },
   {
     "id": "TECH-69",
@@ -913,7 +913,7 @@ const SAMPLE_QUESTIONS = [
       "tylko okresowo, w dzień",
       "ma bardzo duży wpływ"
     ],
-    "answerIndex": null
+    "answerIndex": 2
   },
   {
     "id": "TECH-70",
@@ -925,7 +925,7 @@ const SAMPLE_QUESTIONS = [
       "co kilka lat w związku z ociepleniem",
       "regularnie co 11 lat przy maksymalnej aktywności słonecznej"
     ],
-    "answerIndex": null
+    "answerIndex": 2
   },
   {
     "id": "TECH-71",
@@ -937,7 +937,7 @@ const SAMPLE_QUESTIONS = [
       "zasięg obliczony z mocy promieniowanej e.i.r.p.",
       "zasięg teoretyczny nadajnika"
     ],
-    "answerIndex": null
+    "answerIndex": 0
   },
   {
     "id": "TECH-72",
@@ -949,7 +949,7 @@ const SAMPLE_QUESTIONS = [
       "na odbijaniu fal radiowych od ciepłego powietrza",
       "prowadzeniu fal przez dukty powstałe z warstw ciepłego i zimnego powietrza"
     ],
-    "answerIndex": null
+    "answerIndex": 2
   },
   {
     "id": "TECH-73",
@@ -973,7 +973,7 @@ const SAMPLE_QUESTIONS = [
       "woltomierz",
       "amperomierz"
     ],
-    "answerIndex": null
+    "answerIndex": 1
   },
   {
     "id": "TECH-75",
@@ -985,7 +985,7 @@ const SAMPLE_QUESTIONS = [
       "woltomierzem",
       "amperomierzem"
     ],
-    "answerIndex": null
+    "answerIndex": 0
   },
   {
     "id": "TECH-76",
@@ -997,7 +997,7 @@ const SAMPLE_QUESTIONS = [
       "przyrząd do pomiarów, napięć, prądów, oporności, w wielu zakresach",
       "przyrząd do pomiaru wielu napięć"
     ],
-    "answerIndex": null
+    "answerIndex": 1
   },
   {
     "id": "TECH-77",
@@ -1009,7 +1009,7 @@ const SAMPLE_QUESTIONS = [
       "zmierzyć oporność obwodu i obliczyć",
       "zmierzyć prąd i obliczyć"
     ],
-    "answerIndex": null
+    "answerIndex": 0
   },
   {
     "id": "TECH-78",
@@ -1021,7 +1021,7 @@ const SAMPLE_QUESTIONS = [
       "poprzez pomiar prądu i napięcia stałego doprowadzonego do stopnia mocy (PA)",
       "poprzez uzyskanie raportu od korespondenta"
     ],
-    "answerIndex": null
+    "answerIndex": 0
   },
   {
     "id": "TECH-79",
@@ -1033,7 +1033,7 @@ const SAMPLE_QUESTIONS = [
       "sprawdzeniem czy kabel się nie grzeje",
       "za pomocą reflektometru przelotowego"
     ],
-    "answerIndex": null
+    "answerIndex": 2
   },
   {
     "id": "TECH-80",
@@ -1045,7 +1045,7 @@ const SAMPLE_QUESTIONS = [
       "przez stosowanie filtrów sieciowych i ekranowanie urządzeń oraz odpowiednią konstrukcję",
       "przez zasilanie bateryjne urządzeń"
     ],
-    "answerIndex": null
+    "answerIndex": 1
   },
   {
     "id": "TECH-81",
@@ -1057,7 +1057,7 @@ const SAMPLE_QUESTIONS = [
       "wymogi co do podobnej obsługi urządzeń elektrycznych",
       "taka konstrukcja sprzętu, by urządzenia nie wpływały na siebie i mogły pracować bez powodowania wzajemnych zakłóceń"
     ],
-    "answerIndex": null
+    "answerIndex": 2
   },
   {
     "id": "TECH-82",
@@ -1069,7 +1069,7 @@ const SAMPLE_QUESTIONS = [
       "odbiornik",
       "liniowość stopnia mocy (PA) i filtr wyjściowy"
     ],
-    "answerIndex": null
+    "answerIndex": 2
   },
   {
     "id": "TECH-83",
@@ -1081,7 +1081,7 @@ const SAMPLE_QUESTIONS = [
       "bo są trwałe",
       "bo przy dopasowaniu nie promieniują energii i mogą przechodzić obok innych anten i urządzeń"
     ],
-    "answerIndex": null
+    "answerIndex": 2
   },
   {
     "id": "TECH-84",
@@ -1093,7 +1093,7 @@ const SAMPLE_QUESTIONS = [
       "uziemiamy obudowę",
       "uziemiamy obudowę i włączamy filtr sieciowy w zasilanie"
     ],
-    "answerIndex": null
+    "answerIndex": 2
   },
   {
     "id": "TECH-85",
@@ -1105,7 +1105,7 @@ const SAMPLE_QUESTIONS = [
       "Ministerstwo Ochrony Środowiska",
       "Sztaby antykryzysowe"
     ],
-    "answerIndex": null
+    "answerIndex": 0
   },
   {
     "id": "BHP-1",
@@ -1225,7 +1225,7 @@ const SAMPLE_QUESTIONS = [
       "tak",
       "nie zawsze"
     ],
-    "answerIndex": null
+    "answerIndex": 1
   },
   {
     "id": "BHP-11",
@@ -1285,7 +1285,7 @@ const SAMPLE_QUESTIONS = [
       "tak",
       "nie, jeśli używamy specjalnego ubrania ochronnego"
     ],
-    "answerIndex": null
+    "answerIndex": 1
   },
   {
     "id": "BHP-16",
@@ -1321,7 +1321,7 @@ const SAMPLE_QUESTIONS = [
       "urządzenia te używa się głównie na terenowym QTH więc takie zabezpieczenie nie jest potrzebne",
       "nie stanowi żadnego zabezpieczenia przed energią w.cz."
     ],
-    "answerIndex": null
+    "answerIndex": 2
   },
   {
     "id": "BHP-19",
@@ -1369,7 +1369,7 @@ const SAMPLE_QUESTIONS = [
       "moja częstotliwość jest ...",
       "siła twoich sygnałów waha się"
     ],
-    "answerIndex": null
+    "answerIndex": 1
   },
   {
     "id": "PROC-2",
@@ -1381,7 +1381,7 @@ const SAMPLE_QUESTIONS = [
       "do usłyszenia na innej częstotliwości",
       "mam uszkodzoną antenę"
     ],
-    "answerIndex": null
+    "answerIndex": 0
   },
   {
     "id": "PROC-3",
@@ -1393,7 +1393,7 @@ const SAMPLE_QUESTIONS = [
       "odbieram twoje sygnały bardzo dobrze zmniejsz moc",
       "mam zakłócenia od innych stacji"
     ],
-    "answerIndex": null
+    "answerIndex": 2
   },
   {
     "id": "PROC-4",
@@ -1405,7 +1405,7 @@ const SAMPLE_QUESTIONS = [
       "mam zakłócenia atmosferyczne",
       "pracuję na radiostacji tylko w niedzielę"
     ],
-    "answerIndex": null
+    "answerIndex": 1
   },
   {
     "id": "PROC-5",
@@ -1417,7 +1417,7 @@ const SAMPLE_QUESTIONS = [
       "w okolicy jest burza, wyłączam radiostację",
       "używam anteny dookolnej"
     ],
-    "answerIndex": null
+    "answerIndex": 0
   },
   {
     "id": "PROC-6",
@@ -1429,7 +1429,7 @@ const SAMPLE_QUESTIONS = [
       "jestem gotów do pracy, jestem czynny w eterze",
       "proszę powtórzyć ostatnią relację"
     ],
-    "answerIndex": null
+    "answerIndex": 1
   },
   {
     "id": "PROC-7",
@@ -1441,7 +1441,7 @@ const SAMPLE_QUESTIONS = [
       "przekazuję wiadomość od…",
       "moje położenie geograficzne jest…"
     ],
-    "answerIndex": null
+    "answerIndex": 2
   },
   {
     "id": "PROC-8",
@@ -1453,7 +1453,7 @@ const SAMPLE_QUESTIONS = [
       "zmniejsz moc, zmniejszam moc",
       "powtórz swój znak wywoławczy"
     ],
-    "answerIndex": null
+    "answerIndex": 1
   },
   {
     "id": "PROC-9",
@@ -1465,7 +1465,7 @@ const SAMPLE_QUESTIONS = [
       "na jaką częstotliwość mam się przestroić",
       "mam dla ciebie pilną wiadomość"
     ],
-    "answerIndex": null
+    "answerIndex": 2
   },
   {
     "id": "PROC-10",
@@ -1477,7 +1477,7 @@ const SAMPLE_QUESTIONS = [
       "łączność, mam łączność",
       "siła twoich sygnałów waha się"
     ],
-    "answerIndex": null
+    "answerIndex": 1
   },
   {
     "id": "PROC-11",
@@ -1489,7 +1489,7 @@ const SAMPLE_QUESTIONS = [
       "nadawaj szybciej",
       "słucham na częstotliwości"
     ],
-    "answerIndex": null
+    "answerIndex": 0
   },
   {
     "id": "PROC-12",
@@ -1549,7 +1549,7 @@ const SAMPLE_QUESTIONS = [
       "w odstępach 5-10 minut",
       "po każdym przekazaniu mikrofonu"
     ],
-    "answerIndex": null
+    "answerIndex": 0
   },
   {
     "id": "PROC-17",
@@ -1561,7 +1561,7 @@ const SAMPLE_QUESTIONS = [
       "można, w określonych przepisami zakresach częstotliwości",
       "nie można, ponieważ do obsługi stacji amatorskiej upoważnia jedynie pozwolenie radiowe"
     ],
-    "answerIndex": null
+    "answerIndex": 1
   },
   {
     "id": "PROC-18",
@@ -1573,7 +1573,7 @@ const SAMPLE_QUESTIONS = [
       "należy posiadać świadectwo operatora urządzeń radiowych i co najmniej średnie wykształcenie",
       "należy posiadać świadectwo operatora urządzeń radiowych"
     ],
-    "answerIndex": null
+    "answerIndex": 2
   },
   {
     "id": "PROC-19",
@@ -1585,7 +1585,7 @@ const SAMPLE_QUESTIONS = [
       "nie, znak wywoławczy przydzielany jest w pozwoleniu radiowym",
       "tak, jeżeli dana osoba posiada radiostację"
     ],
-    "answerIndex": null
+    "answerIndex": 1
   },
   {
     "id": "PROC-20",
@@ -1597,7 +1597,7 @@ const SAMPLE_QUESTIONS = [
       "jest to hasło pozwalające wywołać konkretnego rozmówcę",
       "jest to kombinacja liter i cyfr stanowiąca unikalny w skali światowej identyfikator stacji amatorskiej"
     ],
-    "answerIndex": null
+    "answerIndex": 2
   },
   {
     "id": "PROC-21",
@@ -1621,7 +1621,7 @@ const SAMPLE_QUESTIONS = [
       "nie ma określonej budowy, składa się z liter i cyfr",
       "składa się z prefiksu i dwóch liter"
     ],
-    "answerIndex": null
+    "answerIndex": 0
   },
   {
     "id": "PROC-23",
@@ -1633,7 +1633,7 @@ const SAMPLE_QUESTIONS = [
       "składa się z prefiksu, cyfry i kombinacji maksymalnie siedmiu liter i cyfr",
       "składa się z prefiksu i pięciu liter"
     ],
-    "answerIndex": null
+    "answerIndex": 1
   },
   {
     "id": "PROC-24",
@@ -1657,7 +1657,7 @@ const SAMPLE_QUESTIONS = [
       "prowadzenie Logu nie jest obowiązkowe, lecz wskazane",
       "prowadzenie dziennika łączności może być nakazane jako zalecenie pokontrolne inspektorów ochrony środowiska"
     ],
-    "answerIndex": null
+    "answerIndex": 1
   },
   {
     "id": "PROC-26",
@@ -1789,7 +1789,7 @@ const SAMPLE_QUESTIONS = [
       "Międzynarodowy Związek Telekomunikacyjny (ITU)",
       "Światowa Organizacja Handlu (WTO)"
     ],
-    "answerIndex": null
+    "answerIndex": 1
   },
   {
     "id": "REG-2",
@@ -1801,7 +1801,7 @@ const SAMPLE_QUESTIONS = [
       "w Wiedniu",
       "w Genewie"
     ],
-    "answerIndex": null
+    "answerIndex": 2
   },
   {
     "id": "REG-3",
@@ -1837,7 +1837,7 @@ const SAMPLE_QUESTIONS = [
       "Regulamin Radiokomunikacyjny (Radio Regulations) ITU",
       "Konwencja ITU"
     ],
-    "answerIndex": null
+    "answerIndex": 1
   },
   {
     "id": "REG-6",
@@ -1861,7 +1861,7 @@ const SAMPLE_QUESTIONS = [
       "„służba radiokomunikacyjna mająca na celu samokształcenie, wzajemne komunikowanie się i eksperymenty techniczne prowadzone przez amatorów, to jest przez odpowiednio upoważnione osoby interesujące się techniką radiową wyłącznie z pobudek osobistych, bez celów zarobkowych”",
       "„służba radiokomunikacyjna mająca na celu badanie propagacji fal radiowych w zakresach krótkofalowym i ultrakrótkofalowym oraz warunków meteorologicznych”"
     ],
-    "answerIndex": null
+    "answerIndex": 1
   },
   {
     "id": "REG-8",
@@ -1885,7 +1885,7 @@ const SAMPLE_QUESTIONS = [
       "niezbędny jest specjalny wpis do pozwolenia radioamatorskiego",
       "usilnie zaleca się wykorzystywanie stacji amatorskich w powyższych przypadkach"
     ],
-    "answerIndex": null
+    "answerIndex": 2
   },
   {
     "id": "REG-10",
@@ -1897,7 +1897,7 @@ const SAMPLE_QUESTIONS = [
       "tak, Regulamin Radiokomunikacyjny określa ściśle zasady przyznawania znaków",
       "nie, znak wywoławczy obiera sobie sam operator stacji"
     ],
-    "answerIndex": null
+    "answerIndex": 0
   },
   {
     "id": "REG-11",
@@ -1933,7 +1933,7 @@ const SAMPLE_QUESTIONS = [
       "Europejska Konferencja Administracji Pocztowych i Telekomunikacyjnych (CEPT)",
       "Organizacja Bezpieczeństwa i Współpracy w Europie (OBWE)"
     ],
-    "answerIndex": null
+    "answerIndex": 1
   },
   {
     "id": "REG-14",
@@ -1981,7 +1981,7 @@ const SAMPLE_QUESTIONS = [
       "3 miesiące",
       "1 rok"
     ],
-    "answerIndex": null
+    "answerIndex": 1
   },
   {
     "id": "REG-18",
@@ -1993,7 +1993,7 @@ const SAMPLE_QUESTIONS = [
       "pozostawiają powyższy wymóg do decyzji krajowych administracji łączności",
       "znoszą całkowicie powyższy wymóg"
     ],
-    "answerIndex": null
+    "answerIndex": 1
   },
   {
     "id": "REG-19",
@@ -2029,7 +2029,7 @@ const SAMPLE_QUESTIONS = [
       "cztery",
       "pięć"
     ],
-    "answerIndex": null
+    "answerIndex": 0
   },
   {
     "id": "REG-22",
@@ -2065,7 +2065,7 @@ const SAMPLE_QUESTIONS = [
       "Prezes Urzędu Komunikacji Elektronicznej",
       "Minister właściwy do spraw wewnętrznych"
     ],
-    "answerIndex": null
+    "answerIndex": 1
   },
   {
     "id": "REG-25",
@@ -2077,7 +2077,7 @@ const SAMPLE_QUESTIONS = [
       "ustawa Prawo ochrony środowiska",
       "ustawa Prawo telekomunikacyjne"
     ],
-    "answerIndex": null
+    "answerIndex": 2
   },
   {
     "id": "REG-26",
@@ -2089,7 +2089,7 @@ const SAMPLE_QUESTIONS = [
       "w rozporządzeniu Rady Ministrów w sprawie Krajowej Tablicy Przeznaczeń Częstotliwości",
       "w decyzjach Prezesa Urzędu Komunikacji Elektronicznej"
     ],
-    "answerIndex": null
+    "answerIndex": 1
   },
   {
     "id": "REG-27",
@@ -2125,7 +2125,7 @@ const SAMPLE_QUESTIONS = [
       "rozporządzenie ministra właściwego do spraw łączności",
       "zarządzenie Prezesa Urzędu Komunikacji Elektronicznej"
     ],
-    "answerIndex": null
+    "answerIndex": 1
   },
   {
     "id": "REG-30",
@@ -2137,7 +2137,7 @@ const SAMPLE_QUESTIONS = [
       "do uzyskania pozwolenia amatorskiego kategorii 3",
       "wyłącznie do pracy na radiostacji klubowej"
     ],
-    "answerIndex": null
+    "answerIndex": 0
   },
   {
     "id": "REG-31",
@@ -2149,7 +2149,7 @@ const SAMPLE_QUESTIONS = [
       "do uzyskania pozwolenia amatorskiego kategorii 3",
       "do organizowania zawodów w amatorskiej radiolokacji sportowej"
     ],
-    "answerIndex": null
+    "answerIndex": 1
   },
   {
     "id": "REG-32",
@@ -2161,7 +2161,7 @@ const SAMPLE_QUESTIONS = [
       "15 lat",
       "dożywotnio"
     ],
-    "answerIndex": null
+    "answerIndex": 0
   },
   {
     "id": "REG-33",
@@ -2173,7 +2173,7 @@ const SAMPLE_QUESTIONS = [
       "10 lat",
       "15 lat"
     ],
-    "answerIndex": null
+    "answerIndex": 0
   },
   {
     "id": "REG-34",
@@ -2185,7 +2185,7 @@ const SAMPLE_QUESTIONS = [
       "500 watów",
       "250 watów"
     ],
-    "answerIndex": null
+    "answerIndex": 1
   },
   {
     "id": "REG-35",
@@ -2197,7 +2197,7 @@ const SAMPLE_QUESTIONS = [
       "100 watów",
       "150 watów"
     ],
-    "answerIndex": null
+    "answerIndex": 1
   },
   {
     "id": "REG-36",
@@ -2209,7 +2209,7 @@ const SAMPLE_QUESTIONS = [
       "50 watów",
       "150 watów"
     ],
-    "answerIndex": null
+    "answerIndex": 0
   },
   {
     "id": "REG-37",
@@ -2221,7 +2221,7 @@ const SAMPLE_QUESTIONS = [
       "1000 watów",
       "1500 watów"
     ],
-    "answerIndex": null
+    "answerIndex": 0
   },
   {
     "id": "REG-38",
@@ -2233,7 +2233,7 @@ const SAMPLE_QUESTIONS = [
       "7000 – 7100 kHz oraz 28000 – 29700 kHz",
       "we wszystkich zakresach częstotliwości przeznaczonych dla służby radiokomunikacyjnej amatorskiej na terytorium RP"
     ],
-    "answerIndex": null
+    "answerIndex": 2
   },
   {
     "id": "REG-39",
@@ -2245,7 +2245,7 @@ const SAMPLE_QUESTIONS = [
       "1,81-2 MHz; 3,5-3,8 MHz; 7-7,2 MHz; 14-14,35 MHz; 21-21,45 MHz; 28-29,7 MHz, 144 – 146 MHz; 430 – 440 MHz oraz 10-10,5 GHz.",
       "28000 – 29700 kHz oraz 430 – 440 MHz"
     ],
-    "answerIndex": null
+    "answerIndex": 1
   },
   {
     "id": "REG-40",
@@ -2257,7 +2257,7 @@ const SAMPLE_QUESTIONS = [
       "15 lat dla uzyskania świadectwa klasy A i C",
       "nie określono minimalnego wieku"
     ],
-    "answerIndex": null
+    "answerIndex": 0
   },
   {
     "id": "REG-41",
@@ -2281,7 +2281,7 @@ const SAMPLE_QUESTIONS = [
       "wszystkimi rodzajami emisji z mocą wyjściową 250 watów",
       "wyłącznie emisją A1A (telegrafia) z mocą 1 wat e.i.r.p. (równoważna moc promieniowana izotropowo)"
     ],
-    "answerIndex": null
+    "answerIndex": 2
   },
   {
     "id": "REG-43",
@@ -2293,7 +2293,7 @@ const SAMPLE_QUESTIONS = [
       "ustawa Prawo telekomunikacyjne",
       "Krajowa Tablica Przeznaczeń Częstotliwości"
     ],
-    "answerIndex": null
+    "answerIndex": 0
   },
   {
     "id": "REG-44",
@@ -2305,7 +2305,7 @@ const SAMPLE_QUESTIONS = [
       "zachować treść wiadomości w ścisłej tajemnicy",
       "zachować treść wiadomości w ścisłej tajemnicy, zaś w przypadku gdy odebrana wiadomość zawiera istotne dla funkcjonowania Państwa lub porządku publicznego informacje – powiadomić najbliższą jednostkę Urzędu Komunikacji Elektronicznej"
     ],
-    "answerIndex": null
+    "answerIndex": 2
   },
   {
     "id": "REG-45",
@@ -2332,7 +2332,7 @@ const SAMPLE_QUESTIONS = [
     "answerIndex": 1
   }
 ];
-const STORAGE_VERSION = 'uke_v4_dark';
+const STORAGE_VERSION = 'uke_v5_bw_answers';
 const els = {
   badgeCount: document.getElementById('badgeCount'), badgeAccuracy: document.getElementById('badgeAccuracy'), badgeMistakes: document.getElementById('badgeMistakes'),
   progressBar: document.getElementById('progressBar'), searchInput: document.getElementById('searchInput'), categorySelect: document.getElementById('categorySelect'), categoryChips: document.getElementById('categoryChips'), quizCard: document.getElementById('quizCard'), flashCard: document.getElementById('flashCard'), baseList: document.getElementById('baseList'), rawImport: document.getElementById('rawImport'), jsonImport: document.getElementById('jsonImport'), nextBtn: document.getElementById('nextBtn'), shuffleBtn: document.getElementById('shuffleBtn'), mistakesList: document.getElementById('mistakesList'), installBtn: document.getElementById('installBtn')
